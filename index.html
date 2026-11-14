@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="CORVO: Blood for Lucia. A hand-painted beat 'em up through the Naples mafia.">
+<meta property="og:title" content="CORVO: Blood for Lucia">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="img/icon.png">
+<title>CORVO — Blood for Lucia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,500&family=Big+Shoulders+Display:wght@600;800;900&family=Libre+Franklin:wght@400;500;600&display=swap">
+<style>
+/* Layout: a rainy night in Naples - full-bleed footage bands, the copy set like a police file and a film poster */
+:root {
+  --ink: #0b0a0d;        /* the night */
+  --ink-2: #16131a;      /* wet stone */
+  --paper: #efe4cf;      /* the police file */
+  --fg: #e9dfcc;         /* lamplight on plaster */
+  --dim: #a99c88;
+  --blood: #c4211b;      /* the logo's red */
+  --amber: #e9a640;      /* street lamps */
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --label: "Big Shoulders Display", "Impact", "Arial Narrow", sans-serif;
+  --body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.6; margin: 0; }
+img, video { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.label { font-family: var(--label); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .82rem; color: var(--amber); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; text-wrap: balance; margin: 0; line-height: 1.05; }
+h2 { font-size: clamp(2.1rem, 5vw, 3.6rem); }
+h3 { font-size: 1.5rem; }
+p { margin: 0; }
+.lede { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.4; color: var(--fg); max-width: 34ch; }
+.btn { display: inline-flex; align-items: center; gap: .6em; font-family: var(--label); font-weight: 900; letter-spacing: .1em; text-transform: uppercase; font-size: 1.05rem; padding: .9em 1.6em; border: 2px solid var(--blood); background: var(--blood); color: #fff; text-decoration: none; transition: transform .15s ease, background .15s ease; }
+.btn:hover { transform: translateY(-2px); background: #a51611; }
+.btn.ghost { background: transparent; color: var(--fg); border-color: rgba(233, 223, 204, .45); }
+.btn.ghost:hover { border-color: var(--fg); background: rgba(233, 223, 204, .06); }
+.btn:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+/* rain over the hero */
+.rain { position: absolute; inset: 0; pointer-events: none; background-image: repeating-linear-gradient(105deg, transparent 0 22px, rgba(200, 215, 235, .10) 22px 23px, transparent 23px 47px); background-size: 120px 120px; animation: fall .5s linear infinite; mix-blend-mode: screen; }
+@keyframes fall { to { background-position: -30px 120px; } }
+
+/* hero */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid #2a2330; }
+.hero .art { position: absolute; inset: 0; background: center/cover no-repeat url("img/hero.jpg"); }
+.hero .art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11, 10, 13, .92) 0%, rgba(11, 10, 13, .55) 42%, rgba(11, 10, 13, .1) 75%), linear-gradient(0deg, var(--ink) 0%, transparent 30%); }
+.hero .inner { position: relative; padding-block: clamp(48px, 9vw, 120px) clamp(56px, 8vw, 110px); display: grid; gap: 28px; }
+.hero .logo { width: min(560px, 88%); filter: drop-shadow(0 8px 30px rgba(0, 0, 0, .7)); }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero .meta { display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--label); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); font-size: .95rem; }
+.hero .meta b { color: var(--fg); font-weight: 800; }
+
+/* the hook */
+.hook { padding-block: clamp(64px, 9vw, 120px); }
+.hook .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.hook .copy { display: grid; gap: 20px; min-width: 0; }
+.hook .copy p.body { color: var(--dim); max-width: 60ch; }
+.hook figure { margin: 0; position: relative; }
+.hook figure img { width: 100%; box-shadow: 0 30px 60px rgba(0, 0, 0, .6); }
+.hook figure figcaption { margin-top: 10px; font-size: .85rem; color: var(--dim); }
+
+/* footage bands */
+.band { padding-block: clamp(56px, 7vw, 90px); border-top: 1px solid #221c27; }
+.band:nth-of-type(even) { background: var(--ink-2); }
+.feature { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.feature.flip { grid-template-columns: 1.25fr 1fr; }
+.feature.flip .copy { order: 2; }
+.feature .copy { display: grid; gap: 14px; min-width: 0; }
+.feature .copy p { color: var(--dim); max-width: 46ch; }
+.clip { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: #000; box-shadow: 0 24px 50px rgba(0, 0, 0, .55); border: 1px solid #2c2433; }
+.clip video { width: 100%; height: 100%; object-fit: cover; }
+.clip .tag { position: absolute; left: 12px; bottom: 10px; font-family: var(--label); font-weight: 800; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; background: rgba(11, 10, 13, .78); color: var(--amber); padding: 4px 8px; }
+
+/* the eleven stages, as a film strip */
+.stages-head { display: grid; gap: 12px; margin-bottom: 30px; }
+.strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.stage { margin: 0; display: grid; gap: 10px; }
+.stage img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; border: 1px solid #2c2433; transition: transform .25s ease, filter .25s ease; filter: saturate(.92); }
+.stage:hover img { transform: scale(1.02); filter: saturate(1.08); }
+.stage figcaption { display: grid; gap: 2px; }
+.stage .num { font-family: var(--label); font-weight: 900; font-size: .8rem; letter-spacing: .16em; color: var(--blood); }
+.stage .name { font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+.stage .boss { font-size: .85rem; color: var(--dim); }
+
+/* the file: mercy */
+.file { padding-block: clamp(64px, 8vw, 110px); }
+.file .sheet { background: var(--paper); color: #2a1d14; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); box-shadow: 0 30px 70px rgba(0, 0, 0, .6); position: relative; }
+.file .sheet::before { content: "QUESTURA DI NAPOLI — FASCICOLO N. 1970/10"; position: absolute; top: 14px; left: clamp(24px, 4vw, 48px); font-family: "Courier New", Courier, monospace; font-size: .75rem; letter-spacing: .08em; color: #7a6450; }
+.file h2 { color: #2a1d14; margin-top: 18px; }
+.file .sheet p { color: #4a3a2c; max-width: 52ch; }
+.file .stamps { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+.stamp { font-family: var(--label); font-weight: 900; font-size: 1.3rem; letter-spacing: .12em; padding: .25em .7em; border: 3px solid currentColor; transform: rotate(-4deg); }
+.stamp.k { color: #b3191a; } .stamp.s { color: #2b55a8; transform: rotate(3deg); }
+.faces { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; align-content: start; }
+.faces figure { margin: 0; display: grid; gap: 4px; }
+.faces img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 4px solid #fff; box-shadow: 0 3px 8px rgba(0, 0, 0, .35); }
+.faces figcaption { font-family: "Courier New", Courier, monospace; font-size: .66rem; text-align: center; color: #5a4636; }
+
+/* the list of what's in it */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: #2a2330; border: 1px solid #2a2330; }
+.facts div { background: var(--ink); padding: 22px; display: grid; gap: 4px; }
+.facts b { font-family: var(--display); font-size: 2.3rem; font-weight: 700; color: var(--fg); font-variant-numeric: tabular-nums; line-height: 1; }
+.facts span { color: var(--dim); font-size: .92rem; }
+
+/* buy */
+.buy { position: relative; overflow: hidden; padding-block: clamp(70px, 10vw, 130px); }
+.buy .art { position: absolute; inset: 0; background: center 30%/cover no-repeat url("img/cover.jpg"); opacity: .35; }
+.buy .art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--ink) 0%, rgba(11, 10, 13, .6) 50%, var(--ink) 100%); }
+.buy .inner { position: relative; display: grid; grid-template-columns: 300px 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.buy .box { width: 100%; box-shadow: 0 30px 60px rgba(0, 0, 0, .7); transform: rotate(-2deg); border: 1px solid #3a2f40; }
+.buy .copy { display: grid; gap: 18px; min-width: 0; }
+.buy .platforms { color: var(--dim); font-family: var(--label); letter-spacing: .1em; text-transform: uppercase; font-weight: 600; }
+footer { border-top: 1px solid #221c27; padding-block: 28px; color: var(--dim); font-size: .85rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+
+@media (max-width: 820px) {
+  .hook .grid, .feature, .feature.flip, .file .sheet, .buy .inner { grid-template-columns: 1fr; }
+  .feature.flip .copy { order: 0; }
+  .buy .box { max-width: 260px; }
+  .faces { grid-template-columns: repeat(5, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rain { animation: none; }
+  .btn, .stage img { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="art" role="img" aria-label="Corvo in the rain on a Naples street at night"></div>
+  <div class="rain"></div>
+  <div class="wrap inner">
+    <img class="logo" src="img/logo.png" alt="CORVO — Blood for Lucia">
+    <p class="lede">They took the girl he raised. Eleven stages through the Naples mafia to bring her home.</p>
+    <div class="ctas">
+      <a class="btn" href="#buy">Get Corvo</a>
+      <a class="btn ghost" href="#footage">Watch it move</a>
+    </div>
+    <div class="meta"><span><b>Beat 'em up</b> · hand-painted</span><span><b>1–2 h</b> per run</span><span><b>Mac &amp; PC</b> · keyboard or pad</span></div>
+  </div>
+</header>
+
+<section class="hook">
+  <div class="wrap grid">
+    <div class="copy">
+      <span class="label">Napoli, 1970</span>
+      <h2>A hitman who quit. A family that didn't let him.</h2>
+      <p class="body">Corvo walked away from the Malacarne family to raise Lucia. Tonight they took her back. Fight through rain-soaked alleys, a pizzeria, a night train, the Capuchin catacombs and his father's old house, chase her hearse down the coast road in a 1969 Mustang, and climb the Don's villa to the bell tower. Kung fu, judo and whatever guns the mob drops.</p>
+    </div>
+    <figure>
+      <img src="img/s1.jpg" alt="Corvo fighting thugs in a rainy Naples alley" loading="lazy">
+      <figcaption>Stage 1 · Vicoli di Napoli</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div id="footage">
+<section class="band">
+  <div class="wrap feature">
+    <div class="copy">
+      <span class="label">Everything is a weapon</span>
+      <h3>Kick the furniture into them.</h3>
+      <p>Bistro tables skid across the pizzeria floor, wine casks roll through the osteria, poker tables shower the bisca in cards and chips. Every room has something to throw, topple or send flying.</p>
+    </div>
+    <div class="clip"><video src="clips/table.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Corvo kicks a bistro table into a waiter"></video><span class="tag">Stage 2 · Pizzeria</span></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap feature flip">
+    <div class="copy">
+      <span class="label">The Don's armoury</span>
+      <h3>Light the dynamite. Then run.</h3>
+      <p>Secret rooms hide behind gates, shutters, kitchen doors and spiral stairs. In the Don's armoury the crates are full of dynamite, and the fuse doesn't care whose side you're on.</p>
+    </div>
+    <div class="clip"><video src="clips/boom.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A dynamite crate explodes in the armoury"></video><span class="tag">Stage 11 · Armeria</span></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap feature">
+    <div class="copy">
+      <span class="label">Capuchin catacombs</span>
+      <h3>The dead don't stay in their coffins.</h3>
+      <p>Thugs disguised as mummified monks burst out of the coffins on the floor, climb out of dumpsters, walk out of dark archways and get up off the bandstand mid-song. Nobody appears out of thin air.</p>
+    </div>
+    <div class="clip"><video src="clips/coffin.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A mummified monk bursts out of a coffin"></video><span class="tag">Stage 5 · Catacombe</span></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap feature flip">
+    <div class="copy">
+      <span class="label">La Strada del Mare</span>
+      <h3>A car chase down the coast road.</h3>
+      <p>Lucia is in the hearse ahead. Sideswipe the mob's sedans into the rail, dodge the carabinieri and the barrels off the back of the truck, and don't you dare shoot the hearse.</p>
+    </div>
+    <div class="clip"><video src="clips/chase.mp4" autoplay muted loop playsinline preload="metadata" aria-label="The Mustang chases the hearse down the coast road"></video><span class="tag">Stage 7 · Car chase</span></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap feature">
+    <div class="copy">
+      <span class="label">The Bisca</span>
+      <h3>Secret rooms, house rules.</h3>
+      <p>Behind the iron gate, a gambling den. Kick a poker table over and the cards fly. Every stage has a hidden room to find, and every one plays differently.</p>
+    </div>
+    <div class="clip"><video src="clips/poker.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Corvo kicks a poker table, cards and chips fly"></video><span class="tag">Stage 1 · Bisca</span></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap feature flip">
+    <div class="copy">
+      <span class="label">The band plays on</span>
+      <h3>Hand-painted, frame by frame.</h3>
+      <p>Every character, every stumble, every grab is drawn. The mandolin player stops mid-tarantella, gets up off his chair and walks down off the bandstand into the fight.</p>
+    </div>
+    <div class="clip"><video src="clips/band.mp4" autoplay muted loop playsinline preload="metadata" aria-label="The mandolin player gets up and walks off the bandstand"></video><span class="tag">Stage 2 · The band</span></div>
+  </div>
+</section>
+</div>
+
+<section class="band" id="stages">
+  <div class="wrap">
+    <div class="stages-head">
+      <span class="label">Eleven stages · ten bosses</span>
+      <h2>From the alleys of Naples to the Don's bell tower.</h2>
+    </div>
+    <div class="strip">
+      <figure class="stage"><img src="img/s1.jpg" alt="Vicoli di Napoli" loading="lazy"><figcaption><span class="num">STAGE 1</span><span class="name">Vicoli di Napoli</span><span class="boss">Tonino "Lupara"</span></figcaption></figure>
+      <figure class="stage"><img src="img/s2.jpg" alt="Pizzeria da Gennaro" loading="lazy"><figcaption><span class="num">STAGE 2</span><span class="name">Pizzeria da Gennaro</span><span class="boss">Mamma Rosa · Gennaro il pizzaiolo</span></figcaption></figure>
+      <figure class="stage"><img src="img/s3.jpg" alt="Vicolo Cieco" loading="lazy"><figcaption><span class="num">STAGE 3</span><span class="name">Vicolo Cieco</span><span class="boss">Zio Pasquale and his dog, Satana</span></figcaption></figure>
+      <figure class="stage"><img src="img/s4.jpg" alt="Il Treno della Notte" loading="lazy"><figcaption><span class="num">STAGE 4</span><span class="name">Il Treno della Notte</span><span class="boss">Lo Squalo, the Don's money man</span></figcaption></figure>
+      <figure class="stage"><img src="img/s5.jpg" alt="Catacombe dei Cappuccini" loading="lazy"><figcaption><span class="num">STAGE 5</span><span class="name">Catacombe dei Cappuccini</span><span class="boss">La Vedova</span></figcaption></figure>
+      <figure class="stage"><img src="img/s6.jpg" alt="La Vecchia Casa" loading="lazy"><figcaption><span class="num">STAGE 6</span><span class="name">La Vecchia Casa</span><span class="boss">Il Muto, one of the four</span></figcaption></figure>
+      <figure class="stage"><img src="img/s7.jpg" alt="La Strada del Mare" loading="lazy"><figcaption><span class="num">STAGE 7</span><span class="name">La Strada del Mare</span><span class="boss">Il Camion</span></figcaption></figure>
+      <figure class="stage"><img src="img/s8.jpg" alt="I Cancelli" loading="lazy"><figcaption><span class="num">STAGE 8</span><span class="name">I Cancelli</span><span class="boss">Il Giardiniere</span></figcaption></figure>
+      <figure class="stage"><img src="img/s9.jpg" alt="La Villa" loading="lazy"><figcaption><span class="num">STAGE 9</span><span class="name">La Villa</span><span class="boss">Il Maggiordomo</span></figcaption></figure>
+      <figure class="stage"><img src="img/s10.jpg" alt="La Piscina" loading="lazy"><figcaption><span class="num">STAGE 10</span><span class="name">La Piscina</span><span class="boss">Nino Malacarne, the Don's son</span></figcaption></figure>
+      <figure class="stage"><img src="img/s11.jpg" alt="La Torre" loading="lazy"><figcaption><span class="num">STAGE 11</span><span class="name">La Torre</span><span class="boss">Don Vittorio, capo dei capi</span></figcaption></figure>
+      <figure class="stage"><img src="img/boss.jpg" alt="Don Vittorio and Cerbero" loading="lazy"><figcaption><span class="num">FINALE</span><span class="name">The Don and Cerbero</span><span class="boss">Kill the dog and the Don goes berserk</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="file">
+  <div class="wrap">
+    <div class="sheet">
+      <div style="display:grid; gap:16px; min-width:0">
+        <h2>Finish him, or let him go.</h2>
+        <p>Every boss ends on their knees, Corvo's hand at their collar. Press the .38 to their forehead, or let them walk. The police file keeps count, and Lucia is watching. Spare enough of them and you come home a father. Kill them all and she'll be afraid of you.</p>
+        <div class="stamps"><span class="stamp k">KILLED</span><span class="stamp s">SPARED</span></div>
+      </div>
+      <div class="clip" style="align-self:center"><video src="clips/mercy.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Corvo holds a beaten boss by the collar"></video><span class="tag">The judgement</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap facts" aria-label="What's in the game">
+    <div><b>11</b><span>stages, from Naples to Taormina</span></div>
+    <div><b>10</b><span>bosses to judge</span></div>
+    <div><b>11</b><span>secret rooms</span></div>
+    <div><b>3</b><span>chapters played as Lucia</span></div>
+    <div><b>2</b><span>endings</span></div>
+    <div><b>1</b><span>dog named Bruno</span></div>
+  </div>
+</section>
+
+<section class="buy" id="buy">
+  <div class="art"></div>
+  <div class="wrap inner">
+    <img class="box" src="img/cover.jpg" alt="CORVO box art" loading="lazy">
+    <div class="copy">
+      <span class="label">Coming to Mac &amp; PC</span>
+      <h2>Bring her home.</h2>
+      <p class="lede">A hand-painted beat 'em up about a father, a city and a debt the mob means to collect.</p>
+      <div class="ctas" style="display:flex; flex-wrap:wrap; gap:14px">
+        <a class="btn" href="#buy">Store page coming soon</a>
+      </div>
+      <p class="platforms">Keyboard or controller · single player · English, with Italian everywhere it matters</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>CORVO — Blood for Lucia</span><span>Napoli, 1970</span></div>
+</footer>
+</body>
+</html>
