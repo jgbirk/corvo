@@ -143,6 +143,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .don cite { font-style: normal; font-family: var(--label); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .85rem; color: var(--blood); }
 .coat { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .coat > div { display: grid; gap: 14px; }
+.quattro .q-title { width: min(520px, 80vw); height: auto; margin: 4px 0; filter: drop-shadow(0 6px 18px rgba(0,0,0,.6)); }
+.quattro .q-cities { margin-top: clamp(48px, 6vw, 80px); }
+.quattro .q-last { margin-top: clamp(48px, 6vw, 80px); }
 .road, .cast { padding-block: clamp(64px, 8vw, 110px); border-top: 1px solid #221c27; }
 .cast { background: var(--ink-2); }
 .road-head { display: grid; gap: 12px; margin-bottom: clamp(30px, 4vw, 48px); }
@@ -213,6 +216,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="ctas">
       <a class="btn" href="#buy">Get Corvo</a>
       <a class="btn ghost" href="#story">Read the story</a>
+      <a class="btn ghost" href="#quattro">The expansion</a>
     </div>
     <div class="meta"><span><b>Beat 'em up</b> · hand-painted</span><span><b>1–2 h</b> per run</span><span><b>Mac &amp; PC</b> · keyboard or pad</span></div>
   </div>
@@ -335,6 +339,56 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </section>
 
 
+<section class="road quattro" id="quattro">
+  <div class="wrap">
+    <div class="road-head">
+      <span class="label">The expansion · sold separately</span>
+      <img class="q-title" src="img/quattro/title.png" alt="I QUATTRO" loading="lazy">
+      <h2>Before the coat, there was a boy. After it, there were four names.</h2>
+    </div>
+    <ol class="chapters">
+      <li class="chapter">
+        <figure class="panel"><img src="img/quattro/y1.jpg" alt="Young Corvo on the Naples seafront in 1963" loading="lazy"></figure>
+        <div class="ch-copy">
+          <span class="num">Naples · 1963</span>
+          <h3>Il Ragazzo.</h3>
+          <p>Twenty-five, quick hands, no coat yet. His last jobs for the Don, with the friends he grew up with. A street boxer's fists, and an old bicycle chain he really shouldn't have taken.</p>
+        </div>
+      </li>
+      <li class="chapter">
+        <figure class="panel"><img src="img/quattro/y2c.jpg" alt="Young Corvo and his friends in 1963" loading="lazy"></figure>
+        <div class="ch-copy">
+          <span class="num">The choices</span>
+          <h3>What you do in 1963 waits for you in 1971.</h3>
+          <p>Take your cut of the count, or leave it for the crew. Spare a man, or don't. Hold the stairs, or run for the cry upstairs. Nobody forgets.</p>
+        </div>
+      </li>
+      <li class="chapter">
+        <figure class="panel"><img src="img/quattro/board.jpg" alt="The hunt board: three photographs pinned to a corkboard" loading="lazy"></figure>
+        <div class="ch-copy">
+          <span class="num">1971 · the hunt</span>
+          <h3>Four men took her. He has their names now.</h3>
+          <p>Lucia is home. Corvo isn't finished. Pin the photographs to the board and pick who goes first &mdash; the order you hunt them changes who is waiting for you.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="triptych q-cities">
+      <figure class="panel"><img src="img/quattro/m1.jpg" alt="Marseille's old port at night" loading="lazy"><figcaption>Marseille. The docks, and a boat chase out to sea.</figcaption></figure>
+      <figure class="panel"><img src="img/quattro/k1.jpg" alt="A Swiss private bank in the snow" loading="lazy"><figcaption>Zürich. A bank in the snow, and a cable car up the mountain.</figcaption></figure>
+      <figure class="panel"><img src="img/quattro/mc1.jpg" alt="The Monte Carlo casino at night" loading="lazy"><figcaption>Monte Carlo. A casino, a coin, and a man who cheats.</figcaption></figure>
+    </div>
+    <div class="chapter q-last">
+      <figure class="panel"><img src="img/quattro/ny1.jpg" alt="Corvo and Bruno at the feast of San Gennaro in New York" loading="lazy"></figure>
+      <div class="ch-copy">
+        <span class="num">New York</span>
+        <h3>And the last of the four.</h3>
+        <p>The feast of San Gennaro in Little Italy. Lights, a procession, rooftops full of water towers. The one nobody saw that Tuesday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="buy" id="buy">
   <div class="art"></div>
   <div class="wrap inner">
@@ -347,6 +401,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <a class="btn" href="#buy">Store page coming soon</a>
       </div>
       <p class="platforms">Keyboard or controller · single player · English, with Italian everywhere it matters</p>
+      <p class="platforms"><b>I Quattro</b> &mdash; the expansion: 1963's prologue and the hunt for the Four. Sold separately.</p>
     </div>
   </div>
 </section>
