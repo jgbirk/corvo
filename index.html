@@ -146,6 +146,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .quattro .q-title { width: min(520px, 80vw); height: auto; margin: 4px 0; filter: drop-shadow(0 6px 18px rgba(0,0,0,.6)); }
 .quattro .q-cities { margin-top: clamp(48px, 6vw, 80px); }
 .quattro .q-last { margin-top: clamp(48px, 6vw, 80px); }
+.sequel .c2-key { position: relative; margin: 0 0 clamp(36px, 5vw, 64px); border-radius: 6px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.55); }
+.sequel .c2-key img { display: block; width: 100%; height: auto; }
+.sequel .c2-key .c2-logo { position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%); width: min(520px, 62%); height: auto; filter: drop-shadow(0 6px 18px rgba(0,0,0,.7)); }
+.sequel .c2-pair { margin-top: clamp(48px, 6vw, 80px); }
 .road, .cast { padding-block: clamp(64px, 8vw, 110px); border-top: 1px solid #221c27; }
 .cast { background: var(--ink-2); }
 .road-head { display: grid; gap: 12px; margin-bottom: clamp(30px, 4vw, 48px); }
@@ -217,6 +221,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a class="btn" href="#buy">Get Corvo</a>
       <a class="btn ghost" href="#story">Read the story</a>
       <a class="btn ghost" href="#quattro">The expansion</a>
+      <a class="btn ghost" href="#corvo2">Corvo 2</a>
     </div>
     <div class="meta"><span><b>Beat 'em up</b> · hand-painted</span><span><b>1–2 h</b> per run</span><span><b>Mac &amp; PC</b> · keyboard or pad</span></div>
   </div>
@@ -389,6 +394,56 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </section>
 
 
+<section class="road quattro sequel" id="corvo2">
+  <div class="wrap">
+    <div class="road-head">
+      <span class="label">The sequel · in development</span>
+      <h2>Naples, 1986. She grew up.</h2>
+    </div>
+    <figure class="c2-key"><img src="img/c2/key.jpg" alt="Lucia and old Corvo back to back, Raffaele in the clouds above Naples" loading="lazy"><img class="c2-logo" src="img/c2/logo.png" alt="CORVO 2 - La Figlia" loading="lazy"></figure>
+    <ol class="chapters">
+      <li class="chapter">
+        <figure class="panel"><img src="img/c2/c2_fire.jpg" alt="Corvo's bar on the harbour burning at night" loading="lazy"></figure>
+        <div class="ch-copy">
+          <span class="num">Naples · 1986</span>
+          <h3>Fifteen quiet years. Then someone burns down the bar.</h3>
+          <p>Neon, Italo disco, the maxi-trials and car bombs. Corvo is nearly fifty with bad knees and a little bar on the harbour. Lucia is twenty-three, studying law, and she fights better than he ever did.</p>
+        </div>
+      </li>
+      <li class="chapter">
+        <figure class="panel"><img src="img/c2/c2_raf2.jpg" alt="A man with a burned face steps out of a black car" loading="lazy"></figure>
+        <div class="ch-copy">
+          <span class="num">'O Principe</span>
+          <h3>Someone else got out of the fire in 1963.</h3>
+          <p>Raffaele Esposito was ten, and he still carries the burns. Now he runs the heroin in Naples, and he has just found out who carried his baby sister out of that house.</p>
+        </div>
+      </li>
+      <li class="chapter">
+        <figure class="panel"><img src="img/c2/c2_r2.jpg" alt="Raffaele shows Lucia an old photograph of a burning villa" loading="lazy"></figure>
+        <div class="ch-copy">
+          <span class="num">Two of them</span>
+          <h3>She brings them in. He breaks them.</h3>
+          <p>Play Lucia &mdash; fast, low, a switchblade and an old bicycle chain &mdash; or old Corvo, slower and harder than ever. Their stories split and come back together, and what they both did decides how it ends.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="triptych q-cities">
+      <figure class="panel"><img src="img/c2/c2_t1.jpg" alt="A commuter train round Vesuvius" loading="lazy"><figcaption>The Circumvesuviana. A train full of the clan's money.</figcaption></figure>
+      <figure class="panel"><img src="img/c2/c2_b1.jpg" alt="The bunker courtroom of the Palermo maxi-trial" loading="lazy"><figcaption>Palermo. The bunker courtroom of the maxi-trial.</figcaption></figure>
+      <figure class="panel"><img src="img/c2/c2_r1.jpg" alt="A villa on Capri by night" loading="lazy"><figcaption>Capri. Her brother's villa on the rocks.</figcaption></figure>
+    </div>
+    <div class="chapter q-last">
+      <figure class="panel"><img src="img/c2/c2_f1.jpg" alt="Corvo at the gate of the burned villa" loading="lazy"></figure>
+      <div class="ch-copy">
+        <span class="num">Where it began</span>
+        <h3>Back to the house on the hill.</h3>
+        <p>Twenty-three years on, the Esposito villa is still a ruin. Raffaele has lit the torches. It ends where her story started.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="buy" id="buy">
   <div class="art"></div>
   <div class="wrap inner">
@@ -402,6 +457,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
       <p class="platforms">Keyboard or controller · single player · English, with Italian everywhere it matters</p>
       <p class="platforms"><b>I Quattro</b> &mdash; the expansion: 1963's prologue and the hunt for the Four. Sold separately.</p>
+      <p class="platforms"><b>Corvo 2: La Figlia</b> &mdash; the sequel, Naples 1986. In development.</p>
     </div>
   </div>
 </section>
