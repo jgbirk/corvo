@@ -43,9 +43,6 @@ p { margin: 0; }
 .btn.ghost:hover { border-color: var(--fg); background: rgba(233, 223, 204, .06); }
 .btn:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
 
-/* rain over the hero */
-.rain { position: absolute; inset: 0; pointer-events: none; background-image: repeating-linear-gradient(105deg, transparent 0 22px, rgba(200, 215, 235, .10) 22px 23px, transparent 23px 47px); background-size: 120px 120px; animation: fall .5s linear infinite; mix-blend-mode: screen; }
-@keyframes fall { to { background-position: -30px 120px; } }
 
 /* hero */
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid #2a2330; }
@@ -201,7 +198,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .hero .art { position: relative; inset: auto; aspect-ratio: 4 / 3; background-position: 66% 12%; }
   .hero .art-loop { object-position: 66% 12%; }
   .hero .art::after { background: linear-gradient(0deg, var(--ink) 0%, rgba(11, 10, 13, .2) 45%, transparent 70%); }
-  .hero .rain { height: 75vw; }
   .hero .inner { margin-top: -18vw; padding-block: 0 48px; }
   .hook .grid, .feature, .feature.flip, .file .sheet, .buy .inner { grid-template-columns: 1fr; }
   .feature.flip .copy { order: 0; }
@@ -209,7 +205,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .faces { grid-template-columns: repeat(5, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .rain { animation: none; }
   .hero .art-loop { display: none; }
   .btn, .stage img { transition: none; }
 }
