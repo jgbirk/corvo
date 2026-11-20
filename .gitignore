@@ -1,0 +1,4 @@
+# The repo is public and GitHub Pages serves every file in it. The Corvo File's build stays local: the board in
+# plain text, the codes and the build script (its leak checks name every boss and ending). Backed up privately in
+# ~/Development/corvo/site_src (see its README).
+tools/
